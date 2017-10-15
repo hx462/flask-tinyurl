@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+         <style type="text/css">
+            
+            html, body {
+			   margin:0;
+			   padding:0;
+			   height:100%;
+			}
+
+            #container {
+			   min-height:100%;
+			   position:relative;
+			}
+			#header {
+			   background:#ff0;
+			   padding:10px;
+			}
+			#body {
+			   padding:10px;
+			   padding-bottom:60px;   /* Height of the footer */
+			}
+            
+            #footer {
+			   position:absolute;
+			   bottom:0;
+			   width:100%;
+			   height:60px;   /* Height of the footer */
+			   background:#6cf;
+			}
+
+         </style>
+      </head>
+      <body>
+         <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+               <div class="navbar-header">
+                  <a class="navbar-brand" href="#">URL Shortener based on Flask & SQLite</a>
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+               </div>
+               <!--/.navbar-collapse -->
+            </div>
+         </nav>
+         <!-- Main jumbotron for a primary marketing message or call to action -->
+         <div class="jumbotron">
+            <div class="container">
+               <br />
+               {% if not short_url %}
+               <div class="row">
+                  <div class="col-md-offset-5 col-md-3">
+                     <h4>Enter URL to shorten.</h4>
+                     <form method="post" class="navbar-form navbar-right" action="">
+                        <div class="form-group">
+                           <input type="text" id="url" name="url" class="form-control input-lg chat-input" placeholder="URL" />
+                           <button type="submit" class="btn btn-lg btn-info">Submit</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+               {% else %}
+               <div>
+                  Enjoy, your shortened URL is: <a href="{{short_url}}"> {{short_url}}</a>
+               </div>
+               {% endif %}
+            </div>
+         </div>
+         <footer>
+            <p>&copy; Shawn 2017</p>
+         </footer>
+         </div> 
+      </body>
+   </html>
